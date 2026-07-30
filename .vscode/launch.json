@@ -1,28 +1,25 @@
 {
   "version": "0.2.0",
   "configurations": [
+    
+
 
     {
-      "name": "Forge App: Attach to Node Debugger",
-      "type": "pwa-node",
+      "name": " Attach Forge  Debugger",
+      "type": "node",
       "request": "attach",
       "port": 9229,
+      
       "address": "localhost",
       "localRoot": "${workspaceFolder}",
       "remoteRoot": "${workspaceFolder}",
-      "protocol": "inspector",
-      "timeout": 30000,
-      "restart": true,
-      "autoAttachChildProcesses": true
-    }
-  ],
-  "compounds": [
-    {
-      "name": "Forge App: Launch and Attach",
-      "configurations": [
-        "Forge App: Launch Tunnel with Debugger",
-        "Forge App: Attach to Node Debugger"
-      ]
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "sourceMaps": true
+
+
     }
   ]
+  
 }
