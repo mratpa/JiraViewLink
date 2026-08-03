@@ -1,7 +1,7 @@
 const PROPERTY_KEY = 'com.forge.linked-work-item';
 
 function getCurrentIssueKey(context) {
-  return context?.issueKey || context?.issue?.key || 'unknown';
+  return context?.extension?.issue?.key || context.extension.issue.key || 'unknown';
 }
 
 function getLinkedIssueCandidates(issuePayload) {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ForgeReconciler, { Button, Heading, SectionMessage, Stack, Text, TextArea, Textfield } from '@forge/react';
-import { getContext, requestJira } from '@forge/bridge';
+import { view, requestJira } from '@forge/bridge';
 import { createLinkedIssueItem, createPropertyPayload, getCurrentIssueKey, getLinkedIssueCandidates } from './linkedIssuesLogic';
 
 const App = () => {
@@ -16,7 +16,8 @@ const App = () => {
       setMessage(null);
 
       try {
-        const context = await getContext();
+        debugger;
+        const context = await view.getContext();
         const currentIssueKey = getCurrentIssueKey(context);
         setIssueKey(currentIssueKey);
 
@@ -49,12 +50,11 @@ const App = () => {
             return createLinkedIssueItem({ key: linkedIssueKey }, issueDetail, propertyValue);
           })
         );
-
         setLinkedIssues(linkedIssueDetails);
       } catch (error) {
         setMessage({
           type: 'error',
-          text: 'Unable to load the linked work items right now.',
+          text: 'Unable to load the linked work items right now',
         });
       } finally {
         setIsLoading(false);
